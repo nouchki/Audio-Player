@@ -1,0 +1,296 @@
+body{
+    margin: 0px;
+    padding: 0px;
+}
+
+.player
+{
+    position: absolute;
+    --size:400px;
+    top: calc(50% - var(--size)/2);
+    left: calc(50% - var(--size)/2);
+    height: var(--size);
+    width: var(--size);
+    border-radius:50%;
+    overflow:hidden;
+}
+
+.player .poster{
+    position: absolute;
+    --size:500px;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+
+   
+}
+
+.player .poster-playing
+{
+    animation-name: poster-animation;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0, 0, 0, 0);
+}
+
+@keyframes poster-animation
+{
+    0%   { transform:rotate(0deg); }
+    100% { transform:rotate(360deg); }
+}
+
+.player .poster img
+{
+    position: absolute;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    object-fit:cover;
+
+}
+
+.player .poster .disk
+{
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    width: 100px;
+    height: 100px;
+    background: #ddd;
+    border-radius: 50%;
+}
+
+.player .poster .disk-ray
+{
+    position: absolute;
+    top: calc(50% - 35px);
+    left: calc(50% - 37.5px);
+    width: 65px;
+    height: 65px;
+    background: #ddd;
+    border: #aaa solid 5px;
+    border-radius: 50%;
+}
+
+.player .poster .disk-ray .disk-inner-circle
+{
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    background: #fff;
+    border-radius: 50%;
+}
+
+.player .info
+{
+    position: absolute;
+    top: 50%;
+    width:100%;
+    height: 50%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    color:#fff;
+    background: #151518;
+    font-family:'open sans', sans-serif;
+    font-weight:300;
+}
+
+.player .info h1{
+    text-transform:uppercase;
+    font-size:1rem;
+    margin-top: 25px;
+    line-height: 0;
+    z-index:99;
+}
+
+.player .info h2{
+    font-size:1rem;
+    line-height: 1px;
+    font-weight:100;
+    z-index:99;
+}
+
+.player .info .button-items
+{
+    position: absolute;
+    top: 80px;
+    width: 70%;
+    height: 45px;
+    display:flex;
+    align-items: center;
+    z-index:99;
+}
+
+
+.player .info .button-items .controls
+{
+    position: absolute;
+    bottom: 0;
+    display:flex;
+    width:100%;
+    z-index:99;
+}
+
+.player .info .button-items .controls .prev
+{
+    position: absolute;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    display:flex;
+    justify-content: center;
+    enable-background: new 0 0 25 25;
+    cursor: pointer;
+    z-index:99;
+}
+
+.player .info .button-items .controls .next
+{
+    position: absolute;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    display:flex;
+    justify-content: center;
+    enable-background: new 0 0 25 25;
+    cursor: pointer;
+    z-index:99;
+}
+
+.player .info .button-items .controls .play
+{
+    position: absolute;
+    left:calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    display:flex;
+    justify-content: center;
+    enable-background: new 0 0 25 25;
+    cursor: pointer;
+    z-index:99;
+}
+
+
+.player .info .button-items .controls .pause
+{
+    position: absolute;
+    left:calc(50% - 15px);
+    width: 30px;
+    height: 30px;
+    display:flex;
+    justify-content: center;
+    enable-background: new 0 0 25 25;
+    cursor: pointer;
+    z-index:99;
+}
+
+.player .info .button-items .seek-bar
+{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    background: #cccccc;
+    z-index:99;
+}
+
+
+.player .info .button-items .seek-bar .playhead
+{
+    position: absolute;
+    top: -4px;
+    width:10px;
+    height: 10px;
+    background: #566574;
+    border-radius:50%;
+    cursor:pointer;
+}
+
+.player .info .button-items .timer
+{
+    position: absolute;
+    top: 0;
+    color: #566574;
+    line-height: 0;
+    font-size: 0.7rem;
+    float: right;
+    font-family: Arial, Sans-Serif;
+    z-index:99;
+
+}
+
+.player .info .button-items .controls .volume
+{
+    position: absolute;
+    top: 200%;
+    left:calc(50% - 11px);
+    cursor:pointer;
+}
+
+.player .info .button-items .controls .volume:hover
+{
+    animation-name:volume-animation;
+    animation-duration:1s;
+    animation-iteration-count: 1;
+}
+
+
+
+.player .info .button-items .controls .volume .volume-controls
+{
+    position: absolute;
+    top: 40%;
+    left:50px;
+    width: 500px;
+    height: 500px;
+}
+
+.player .info .button-items .controls .hidding-volume-controls
+{
+    position: absolute;
+    top: 240%;
+    left:calc(50% - 11px + 50px);
+    width: 50px;
+    height: 10px;
+    background: #151518;
+    z-index:200;
+}
+
+
+.player .info .button-items .controls .volume .volume-controls .volume-bar
+{
+    position: relative;
+    width: 50px;
+    height: 2px;
+    background: #cccccc;
+}
+
+.player .info .button-items .controls .volume .volume-controls .volume-bar .fill
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #566574;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+    will-change: transform;
+}
+
+.player .info .button-items .controls .is-active
+{
+    transform:translateX(-50px);
+    transition:transform 0.6s cubic-bezier(0.75, 0, 0.25, 1);
+}
+
+.visible
+{
+    visibility: visible;
+}
